@@ -1,0 +1,12 @@
+sudo: required
+dist: trusty
+language: c
+compiler:
+  - gcc
+before_install:
+  - sudo apt install -y linux-headers-`uname -r`
+script:
+  - git clone https://github.com/herumi/walb
+  - cd walb/module
+  - make
+  - sudo insmod walb-mod.ko
